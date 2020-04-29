@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.UnreachableBrowserException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,14 +18,16 @@ public class Hook {
 
     @Before
     public void setupDriver() {
-        System.out.println(ip);
-//        try {
-//            driver = new RemoteWebDriver(new URL("http://" + ip +":4444/wd/hub"), new ChromeOptions());
-//        } catch (MalformedURLException e) {
-//            System.out.println("The remote webdriver could not connect");
-//            e.printStackTrace();
-//        }
-        driver = DriverFactory.getDriver();
+        try {
+            driver = new RemoteWebDriver(new URL("http://" + ip +":4444/wd/hub"), new ChromeOptions());
+        } catch (MalformedURLException e) {
+            System.out.println("The remote webdriver could not connect");
+            e.printStackTrace();
+        } catch (UnreachableBrowserException e) {
+            System.out.println("The remote webdriver could not connect");
+            driver = DriverFactory.getDriver();
+        }
+
 
     }
 
