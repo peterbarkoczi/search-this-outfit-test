@@ -12,7 +12,7 @@ public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.url = "http://" + ip + ":" + port + "/";
+        this.url = "http://" + ip + ":3032/";
 }
 
     public void navigateToMainPage() {
