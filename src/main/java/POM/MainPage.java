@@ -31,7 +31,7 @@ public class MainPage extends BasePage {
     }
 
     public void uploadFile() {
-        chooseFileButton.sendKeys(Util.getResourcePath("pictures", "farmer.jpg"));
+        chooseFileButton.sendKeys(System.getenv("picturePath") + "/farmer.jpg");
     }
 
     public boolean labelIsAppear() {
