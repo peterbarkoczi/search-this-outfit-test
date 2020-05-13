@@ -22,6 +22,7 @@ public class Hook {
             driver = new RemoteWebDriver(new URL("http://" + ip +":4444/wd/hub"), new ChromeOptions());
         } catch (MalformedURLException e) {
             System.out.println("The remote webdriver could not connect");
+            driver = DriverFactory.getDriver();
             e.printStackTrace();
         } catch (UnreachableBrowserException e) {
             System.out.println("The remote webdriver could not connect");
