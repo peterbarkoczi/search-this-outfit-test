@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class BasePage {
     protected WebDriver driver;
     WebDriverWait wait;
+    String url;
     protected String ip = System.getenv("ipaddress");
     protected String port = System.getenv("port");
 
