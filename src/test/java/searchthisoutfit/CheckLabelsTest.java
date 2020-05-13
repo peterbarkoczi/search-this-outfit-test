@@ -1,0 +1,22 @@
+package searchthisoutfit;
+
+import POM.MainPage;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class CheckLabelsTest extends BaseTest {
+
+    private MainPage mainPage;
+
+    @When("Upload a picture")
+    public void uploadAPicture() {
+        mainPage = new MainPage(driver);
+        mainPage.uploadFile();
+    }
+
+    @Then("The labels should appear")
+    public void theLabelsShouldAppear() {
+        mainPage.labelIsAppear();
+    }
+}
+

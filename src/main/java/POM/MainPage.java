@@ -11,6 +11,12 @@ public class MainPage extends BasePage {
     @FindBy(className = "title-a")
     private WebElement logo;
 
+    @FindBy(css = "input[type=file]" )
+    private WebElement chooseFileButton;
+
+    @FindBy(className = "sidebar")
+    private WebElement labels;
+
     public MainPage(WebDriver driver) {
         super(driver);
         this.url = "http://" + ip + ":3032/";
@@ -22,5 +28,13 @@ public class MainPage extends BasePage {
 
     public boolean logoIsAppeared() {
         return wait.until(ExpectedConditions.visibilityOf(logo)).isDisplayed();
+    }
+
+    public void uploadFile() {
+        chooseFileButton.sendKeys(Util.getResourcePath("pictures", "farmer.jpg"));
+    }
+
+    public boolean labelIsAppear() {
+        return wait.until(ExpectedConditions.visibilityOf(labels)).isDisplayed();
     }
 }
