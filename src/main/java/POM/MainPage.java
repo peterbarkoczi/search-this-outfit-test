@@ -1,13 +1,13 @@
 package POM;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.LocalFileDetector;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.File;
+import java.util.List;
 
 public class MainPage extends BasePage {
 
@@ -34,14 +34,17 @@ public class MainPage extends BasePage {
     }
 
     public void uploadFile(String filename) {
-        LocalFileDetector detector = new LocalFileDetector();
-        String path = new File("src/test/resources/pictures/").getAbsolutePath() + "/" + filename;
-        File picture = detector.getLocalFile(path);
-        ((RemoteWebDriver) driver).setFileDetector(detector);
+//        LocalFileDetector detector = new LocalFileDetector();
+//        String path = new File("src/test/resources/pictures/").getAbsolutePath() + "/" + filename;
+//        File picture = detector.getLocalFile(path);
+//        ((RemoteWebDriver) driver).setFileDetector(detector);
+        File picture = new File("src/test/resources/pictures/" + filename);
         chooseFileButton.sendKeys(picture.getAbsolutePath());
     }
 
     public boolean labelIsAppear() {
-        return wait.until(ExpectedConditions.visibilityOf(labels)).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/ul/button")));
+        List<WebElement> labels = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/ul/button"));
+        return labels.size() > 0;
     }
 }
