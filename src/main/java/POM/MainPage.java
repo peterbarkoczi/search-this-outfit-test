@@ -1,8 +1,9 @@
 package POM;
 
-import Utils.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -21,7 +22,7 @@ public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.url = "http://" + ip + ":3032/";
+        this.url = "http://localhost:3000/";
 }
 
     public void navigateToMainPage() {
@@ -32,8 +33,11 @@ public class MainPage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOf(logo)).isDisplayed();
     }
 
-    public void uploadFile() {
-        File picture = new File("src/test/resources/pictures/farmer.jpg");
+    public void uploadFile(String filename) {
+        LocalFileDetector detector = new LocalFileDetector();
+        String path = new File("src/test/resources/pictures/").getAbsolutePath() + "/" + filename;
+        File picture = detector.getLocalFile(path);
+        ((RemoteWebDriver) driver).setFileDetector(detector);
         chooseFileButton.sendKeys(picture.getAbsolutePath());
     }
 

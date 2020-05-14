@@ -12,7 +12,7 @@ public class CheckLabelsTest extends BaseTest {
     @When("Upload a picture")
     public void uploadAPicture() {
         mainPage = new MainPage(driver);
-        mainPage.uploadFile();
+        mainPage.uploadFile("farmer.jpg");
     }
 
     @Then("The labels should appear")
