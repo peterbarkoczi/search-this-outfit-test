@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.io.File;
+
 public class MainPage extends BasePage {
 
     @FindBy(className = "title-a")
@@ -31,7 +33,8 @@ public class MainPage extends BasePage {
     }
 
     public void uploadFile() {
-        chooseFileButton.sendKeys(System.getenv("picturePath") + "farmer.jpg");
+        File picture = new File("src/test/resources/pictures/farmer.jpg");
+        chooseFileButton.sendKeys(picture.getAbsolutePath());
     }
 
     public boolean labelIsAppear() {
