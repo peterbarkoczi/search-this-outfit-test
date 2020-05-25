@@ -1,18 +1,6 @@
-seleniumhub:
-  image: selenium/hub
+backend:
+  image: ../backend/java_backend/backend:latest
+  environment:
+    - API_KEY=2594914d2f734dacaf3087503148c5d1
   ports:
-    - 4444:4444
-
-firefoxnode:
-  image: selenium/node-firefox-debug
-  ports:
-    - 4577
-  links:
-    - seleniumhub:hub
-
-chromenode:
-  image: selenium/node-chrome-debug
-  ports:
-    - 4578
-  links:
-    - seleniumhub:hub
+    - 8080:8080

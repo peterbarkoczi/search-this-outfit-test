@@ -19,7 +19,7 @@ public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.url = "http://" + ip + ":3032/";
+        this.url = "http://localhost:3000/";
 }
 
     public void navigateToMainPage() {
