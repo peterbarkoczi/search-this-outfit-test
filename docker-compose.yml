@@ -11,6 +11,6 @@ frontend:
     - 3000:3000
 
 chrome:
-  image: selenium/standalone-chrome
+  image: selenium/standalone-chrome:2.53.1
   ports:
     - 4444:4444
