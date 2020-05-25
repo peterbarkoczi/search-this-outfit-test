@@ -10,21 +10,7 @@ frontend:
   ports:
     - 3000:3000
 
-seleniumhub:
-  image: selenium/hub
+chrome:
+  image: selenium/standalone-chrome:latest
   ports:
     - 4444:4444
-
-firefoxnode:
-  image: selenium/node-firefox-debug
-  ports:
-    - 4577
-  links:
-    - seleniumhub:hub
-
-chromenode:
-  image: selenium/node-chrome-debug
-  ports:
-    - 4578
-  links:
-    - seleniumhub:hub
