@@ -4,3 +4,8 @@ backend:
     - API_KEY=2594914d2f734dacaf3087503148c5d1
   ports:
     - 8080:8080
+
+frontend:
+  image: ../frontend/frontend:latest
+  ports:
+    - 3000:3000
