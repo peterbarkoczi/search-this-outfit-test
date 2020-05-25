@@ -22,7 +22,7 @@ public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.url = "http://localhost:3000/";
+        this.url = "http://172.18.0.2:3000/";
 }
 
     public void navigateToMainPage() {
