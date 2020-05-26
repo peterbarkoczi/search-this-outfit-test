@@ -11,6 +11,6 @@ frontend:
     - 3333:80
 
 chrome:
-  image: selenium/standalone-chrome:2.53.1
+  image: selenium/standalone-chrome:3.141.59-zinc
   ports:
     - 4444:4444
