@@ -22,7 +22,7 @@ public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.url = "http://localhost:3333/";
+        this.url = "http://localhost:3000/";
 }
 
     public void navigateToMainPage() {
@@ -43,8 +43,13 @@ public class MainPage extends BasePage {
     }
 
     public boolean labelIsAppear() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/ul/button")));
-        List<WebElement> labels = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/ul/button"));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#root > div > div.container > div > div > div.sc-AxhCb.fofFKS > div > ul > button")));
+        List<WebElement> labels = driver.findElements(By.cssSelector("#root > div > div.container > div > div > div.sc-AxhCb.fofFKS > div > ul > button"));
         return labels.size() > 0;
     }
 }
