@@ -9,8 +9,3 @@ frontend:
   image: frontend:latest
   ports:
     - 3333:80
-
-chrome:
-  image: selenium/standalone-chrome:3.141.59-zinc
-  ports:
-    - 4444:4444
