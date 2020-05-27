@@ -9,10 +9,10 @@ public class CheckLabelsTest extends BaseTest {
 
     private MainPage mainPage;
 
-    @When("Upload a picture")
-    public void uploadAPicture() {
+    @When("Upload a picture: {string}")
+    public void uploadAPicture(String filename) {
         mainPage = new MainPage(driver);
-        mainPage.uploadFile("farmer.jpg");
+        mainPage.uploadFile(filename);
     }
 
     @Then("The labels should appear")
