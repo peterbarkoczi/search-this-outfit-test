@@ -18,7 +18,10 @@ public class MainPage extends BasePage {
     private WebElement chooseFileButton;
 
     @FindBy(className = "sidebar")
-    private WebElement labels;
+    private WebElement labelsDiv;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[3]/div/div/div[2]/div/ul")
+    private WebElement labelsUl;
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -43,8 +46,9 @@ public class MainPage extends BasePage {
     }
 
     public boolean labelIsAppear() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#root > div > div.container > div > div > div.sc-AxhCb.fofFKS > div > ul > button:nth-child(1)")));
-        List<WebElement> labels = driver.findElements(By.cssSelector("#root > div > div.container > div > div > div.sc-AxhCb.fofFKS > div > ul > button"));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button[1]")));
+        System.out.println("Find");
+        List<WebElement> labels = driver.findElements(By.xpath("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button"));
         return labels.size() > 0;
     }
 }
