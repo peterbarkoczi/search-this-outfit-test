@@ -43,8 +43,8 @@ public class MainPage extends BasePage {
     }
 
     public boolean labelIsAppear() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/ul/button")));
-        List<WebElement> labels = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/ul/button"));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#root > div > div.container > div > div > div.sc-AxhCb.fofFKS > div > ul > button:nth-child(1)")));
+        List<WebElement> labels = driver.findElements(By.cssSelector("#root > div > div.container > div > div > div.sc-AxhCb.fofFKS > div > ul > button"));
         return labels.size() > 0;
     }
 }
