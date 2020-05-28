@@ -18,8 +18,8 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
-        wait = new WebDriverWait(driver, 20);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 40), this);
+        wait = new WebDriverWait(driver, 40);
     }
 
     public void navigateTo(String url) {
