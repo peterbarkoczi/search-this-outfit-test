@@ -53,13 +53,8 @@ public class MainPage extends BasePage {
         return labels.size() > 0;
     }
 
-    public void clickOnLabelButton(String label) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button[1]")));
-        List<WebElement> labels = getLabels("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button[1]",
-                "/html/body/div/div/div[3]/div/div/div[2]/div/ul/button");
-        for (WebElement labelElement : labels) {
-            if (labelElement.getText().equals(label)) clickOn(labelElement);
-        }
+    public void clickOnLabelButton() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button[1]"))).click();
     }
 
     public boolean clothesAreAppeared() {

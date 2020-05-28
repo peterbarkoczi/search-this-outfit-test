@@ -14,7 +14,7 @@ public class ClickOnLabelButtonTest extends BaseTest {
     @And("Click on label button")
     public void clickOnLabelButton() {
         mainPage = new MainPage(driver);
-        mainPage.clickOnLabelButton("pants");
+        mainPage.clickOnLabelButton();
     }
 
 
