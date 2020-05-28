@@ -1,6 +1,7 @@
 package searchthisoutfit.config;
 
 import POM.MainPage;
+import POM.PicturePage;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.openqa.selenium.WebDriver;
@@ -13,5 +14,6 @@ public abstract class BaseTest {
     protected WebDriverWait wait;
 
     protected MainPage mainPage = new MainPage(driver);
+    protected PicturePage picturePage = new PicturePage(driver);
 
 }
