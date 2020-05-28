@@ -10,6 +10,9 @@ public class PicturePage extends BasePage {
     @FindBy(xpath = "/html/body/div/div/div[3]/div/img")
     private WebElement picture;
 
+    @FindBy(className = "title-a")
+    private WebElement logo;
+
     public PicturePage(WebDriver driver) {
         super(driver);
     }
@@ -17,4 +20,9 @@ public class PicturePage extends BasePage {
     public boolean pictureIsAppeard() {
         return wait.until(ExpectedConditions.visibilityOf(picture)).isDisplayed();
     }
+
+    public void clickOnLogo() {
+        clickOn(logo);
+    }
+
 }

@@ -24,7 +24,10 @@ public class MainPage extends BasePage {
     private WebElement labelsUl;
 
     @FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/a[1]")
-    WebElement pictureLink;
+    private WebElement pictureLink;
+
+    @FindBy(xpath = "/html/body/div/div/div[3]/div/div/div[3]/p")
+    private WebElement openMessage;
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -33,6 +36,10 @@ public class MainPage extends BasePage {
 
     public void navigateToMainPage() {
         navigateTo(url);
+    }
+
+    public void refreshPage() {
+        driver.navigate().refresh();
     }
 
     public boolean logoIsAppeared() {
@@ -74,6 +81,10 @@ public class MainPage extends BasePage {
 
     public void clickOnPictureLink() {
         clickOn(pictureLink);
+    }
+
+    public boolean messageIsAppear() {
+        return wait.until(ExpectedConditions.visibilityOf(openMessage)).isDisplayed();
     }
 
 }
