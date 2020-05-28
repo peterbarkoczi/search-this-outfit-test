@@ -4,6 +4,7 @@ import POM.MainPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
+import searchthisoutfit.config.BaseTest;
 
 public class GoToMainPageTest extends BaseTest {
 
