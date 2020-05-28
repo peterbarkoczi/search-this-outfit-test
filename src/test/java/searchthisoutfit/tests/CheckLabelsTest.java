@@ -8,8 +8,6 @@ import searchthisoutfit.config.BaseTest;
 
 public class CheckLabelsTest extends BaseTest {
 
-    private MainPage mainPage;
-
     @When("Upload a picture: {string}")
     public void uploadAPicture(String filename) {
         mainPage = new MainPage(driver);

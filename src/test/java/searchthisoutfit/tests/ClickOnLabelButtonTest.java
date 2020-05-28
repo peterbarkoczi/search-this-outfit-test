@@ -9,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ClickOnLabelButtonTest extends BaseTest {
 
-    private MainPage mainPage;
-
     @And("Click on label button")
     public void clickOnLabelButton() {
         mainPage = new MainPage(driver);
