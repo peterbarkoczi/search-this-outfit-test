@@ -23,6 +23,9 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[3]/div/div/div[2]/div/ul")
     private WebElement labelsUl;
 
+    @FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/a[1]")
+    WebElement pictureLink;
+
     public MainPage(WebDriver driver) {
         super(driver);
         this.url = "http://localhost:3333/";
@@ -68,4 +71,9 @@ public class MainPage extends BasePage {
         WebElement image = driver.findElement(By.className("current-image"));
         return image.isDisplayed();
     }
+
+    public void clickOnPictureLink() {
+        clickOn(pictureLink);
+    }
+
 }
