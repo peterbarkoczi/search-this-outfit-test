@@ -1,5 +1,6 @@
 package searchthisoutfit.config;
 
+import POM.MainPage;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.openqa.selenium.WebDriver;
@@ -10,5 +11,7 @@ public abstract class BaseTest {
 
     protected WebDriver driver = Hook.driver;
     protected WebDriverWait wait;
+
+    protected MainPage mainPage = new MainPage(driver);
 
 }

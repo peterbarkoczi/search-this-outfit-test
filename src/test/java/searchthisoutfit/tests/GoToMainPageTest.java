@@ -8,8 +8,6 @@ import searchthisoutfit.config.BaseTest;
 
 public class GoToMainPageTest extends BaseTest {
 
-    private MainPage mainPage;
-
     @Given("Open application main page")
     public void openApplicationMainPage() {
         mainPage = new MainPage(driver);
