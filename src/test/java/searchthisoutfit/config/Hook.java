@@ -1,4 +1,4 @@
-package searchthisoutfit;
+package searchthisoutfit.config;
 
 import Driver.DriverFactory;
 import io.cucumber.java.After;
@@ -14,12 +14,11 @@ import java.net.URL;
 public class Hook {
 
     public static WebDriver driver;
-    String ip = System.getenv("ipaddress");
 
     @Before
     public void setupDriver() {
         try {
-            driver = new RemoteWebDriver(new URL("http://" + ip +":4444/wd/hub"), new ChromeOptions());
+            driver = new RemoteWebDriver(new URL("http://localhost:4445/wd/hub/"), new ChromeOptions());
         } catch (MalformedURLException e) {
             System.out.println("The remote webdriver could not connect");
             driver = DriverFactory.getDriver();

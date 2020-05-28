@@ -1,4 +1,4 @@
-package searchthisoutfit;
+package searchthisoutfit.config;
 
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
