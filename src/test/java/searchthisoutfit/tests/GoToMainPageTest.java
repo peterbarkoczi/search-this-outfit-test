@@ -1,4 +1,4 @@
-package searchthisoutfit;
+package searchthisoutfit.tests;
 
 import POM.MainPage;
 import io.cucumber.java.en.Given;

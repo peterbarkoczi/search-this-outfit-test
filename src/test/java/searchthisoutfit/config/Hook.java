@@ -1,4 +1,4 @@
-package searchthisoutfit;
+package searchthisoutfit.config;
 
 import Driver.DriverFactory;
 import io.cucumber.java.After;
