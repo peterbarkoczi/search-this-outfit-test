@@ -3,7 +3,7 @@ backend:
   environment:
     - API_KEY=2594914d2f734dacaf3087503148c5d1
   ports:
-    - 3334:8080
+    - 8080:8080
 
 frontend:
   image: frontend:latest
