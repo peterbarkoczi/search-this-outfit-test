@@ -67,4 +67,10 @@ public class MainPage extends BasePage {
                 "/html/body/div/div/div[3]/div/div/div[3]/div/ul/li");
         return labels.size() > 0;
     }
+
+    public boolean imageIsAppeared() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className("current-image")));
+        WebElement image = driver.findElement(By.className("current-image"));
+        return image.isDisplayed();
+    }
 }
