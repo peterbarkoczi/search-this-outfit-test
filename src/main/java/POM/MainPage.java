@@ -25,7 +25,7 @@ public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.url = "http://localhost:3333/";
+        this.url = "http://localhost:3000/";
 }
 
     public void navigateToMainPage() {
@@ -37,18 +37,34 @@ public class MainPage extends BasePage {
     }
 
     public void uploadFile(String filename) {
-//        LocalFileDetector detector = new LocalFileDetector();
-//        String path = new File("src/test/resources/pictures/").getAbsolutePath() + "/" + filename;
-//        File picture = detector.getLocalFile(path);
-//        ((RemoteWebDriver) driver).setFileDetector(detector);
         File picture = new File("src/test/resources/pictures/" + filename);
         chooseFileButton.sendKeys(picture.getAbsolutePath());
     }
 
-    public boolean labelIsAppear() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button[1]")));
+    private List<WebElement> getLabels(String xpath1, String xpath2) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath1)));
         System.out.println("Find");
-        List<WebElement> labels = driver.findElements(By.xpath("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button"));
+        return driver.findElements(By.xpath(xpath2));
+    }
+
+    public boolean labelIsAppear() {
+        List<WebElement> labels = getLabels("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button[1]",
+                "/html/body/div/div/div[3]/div/div/div[2]/div/ul/button");
+        return labels.size() > 0;
+    }
+
+    public void clickOnLabelButton(String label) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button[1]")));
+        List<WebElement> labels = getLabels("/html/body/div/div/div[3]/div/div/div[2]/div/ul/button[1]",
+                "/html/body/div/div/div[3]/div/div/div[2]/div/ul/button");
+        for (WebElement labelElement : labels) {
+            if (labelElement.getText().equals(label)) clickOn(labelElement);
+        }
+    }
+
+    public boolean clothesAreAppeared() {
+        List<WebElement> labels = getLabels("/html/body/div/div/div[3]/div/div/div[3]/div/ul/li[1]",
+                "/html/body/div/div/div[3]/div/div/div[3]/div/ul/li");
         return labels.size() > 0;
     }
 }
