@@ -14,7 +14,7 @@ public class MainPage extends BasePage {
     @FindBy(className = "title-a")
     private WebElement logo;
 
-    @FindBy(css = "input[type=file]" )
+    @FindBy(css = "input[type=file]")
     private WebElement chooseFileButton;
 
     @FindBy(className = "sidebar")
@@ -32,7 +32,7 @@ public class MainPage extends BasePage {
     public MainPage(WebDriver driver) {
         super(driver);
         this.url = "http://localhost:3000/";
-}
+    }
 
     public void navigateToMainPage() {
         navigateTo(url);
@@ -97,4 +97,15 @@ public class MainPage extends BasePage {
                 By.className("popups"))).isDisplayed();
     }
 
+    public void clickOnCheckProductButton() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("/html/body/div/div/div[3]/div/div/div[4]/div[2]/div[3]/a")
+        )).click();
+    }
+
+    public String getProductName() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.className("popup-text-name")
+        )).getText();
+    }
 }
