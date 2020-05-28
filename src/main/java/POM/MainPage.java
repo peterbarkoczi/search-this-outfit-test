@@ -31,7 +31,7 @@ public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.url = "http://localhost:3333/";
+        this.url = "http://localhost:3000/";
 }
 
     public void navigateToMainPage() {
@@ -85,6 +85,16 @@ public class MainPage extends BasePage {
 
     public boolean messageIsAppear() {
         return wait.until(ExpectedConditions.visibilityOf(openMessage)).isDisplayed();
+    }
+
+    public void clickOnProductLink() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("/html/body/div/div/div[3]/div/div/div[3]/div/ul/li[1]"))).click();
+    }
+
+    public boolean popupIsAppeared() {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.className("popups"))).isDisplayed();
     }
 
 }
