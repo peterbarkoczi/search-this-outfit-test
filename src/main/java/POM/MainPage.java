@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.File;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MainPage extends BasePage {
 
@@ -97,6 +98,15 @@ public class MainPage extends BasePage {
                 By.className("popups"))).isDisplayed();
     }
 
+    public boolean popupIsDisappeared() {
+        try {
+            return driver.findElement(By.className("popups")).isDisplayed();
+        } catch (NoSuchElementException e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+
     public void clickOnCheckProductButton() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("/html/body/div/div/div[3]/div/div/div[4]/div[2]/div[3]/a")
@@ -107,5 +117,11 @@ public class MainPage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.className("popup-text-name")
         )).getText();
+    }
+
+    public void clickOnClosePopupButton() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.className("close-button")
+        )).click();
     }
 }
