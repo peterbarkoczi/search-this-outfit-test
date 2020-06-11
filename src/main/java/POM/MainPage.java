@@ -129,4 +129,8 @@ public class MainPage extends BasePage {
                 By.className("close-button")
         )).click();
     }
+
+    public void clickOnSearchButton() {
+        wait.until(ExpectedConditions.visibilityOf(searchButton)).click();
+    }
 }

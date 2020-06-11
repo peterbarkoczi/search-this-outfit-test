@@ -11,6 +11,7 @@ public class BackToTheMainPageTest extends BaseTest {
 
     @And("Upload {string} file")
     public void uploadFile(String filename) {
+        mainPage.clickOnSearchButton();
         mainPage.uploadFile(filename);
     }
 
