@@ -28,6 +28,6 @@ public class BackToTheMainPageTest extends BaseTest {
     @Then("Main page should appear")
     public void mainPageIsAppeared() {
         mainPage.refreshPage();
-        assertTrue(mainPage.messageIsAppear());
+        assertTrue(mainPage.welcomeMessageIsAppear());
     }
 }

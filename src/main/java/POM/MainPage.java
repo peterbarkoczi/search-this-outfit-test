@@ -27,12 +27,17 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/a[1]")
     private WebElement pictureLink;
 
-    @FindBy(xpath = "/html/body/div/div/div[3]/div/div/div[3]/p")
-    private WebElement openMessage;
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[3]/div/div/p[1]")
+    private WebElement welcomeMessage;
+
+    @FindBy(className = "search-link")
+    private WebElement searchButton;
+
+    private WebElement popup;
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.url = "http://localhost:3333/";
+        this.url = "http://localhost:3000/";
     }
 
     public void navigateToMainPage() {
@@ -84,8 +89,8 @@ public class MainPage extends BasePage {
         clickOn(pictureLink);
     }
 
-    public boolean messageIsAppear() {
-        return wait.until(ExpectedConditions.visibilityOf(openMessage)).isDisplayed();
+    public boolean welcomeMessageIsAppear() {
+        return wait.until(ExpectedConditions.visibilityOf(welcomeMessage)).isDisplayed();
     }
 
     public void clickOnProductLink() {

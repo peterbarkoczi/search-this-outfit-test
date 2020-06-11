@@ -14,8 +14,8 @@ public class GoToMainPageTest extends BaseTest {
         mainPage.navigateToMainPage();
     }
 
-    @Then("Check whether logo is appeared")
-    public void checkWhetherLogoIsAppeared() {
-        Assertions.assertTrue(mainPage.logoIsAppeared());
+    @Then("Check whether the welcome message is appeared")
+    public void checkWhetherMessageIsAppeared() {
+        Assertions.assertTrue(mainPage.welcomeMessageIsAppear());
     }
 }
