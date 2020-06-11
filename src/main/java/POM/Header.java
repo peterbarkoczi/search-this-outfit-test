@@ -58,4 +58,8 @@ public class Header extends BasePage {
         return false;
     }
 
+    public void clickOnLogo() {
+        clickOn(logo);
+    }
+
 }
