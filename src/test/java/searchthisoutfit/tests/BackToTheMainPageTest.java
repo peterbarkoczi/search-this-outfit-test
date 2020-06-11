@@ -11,19 +11,18 @@ public class BackToTheMainPageTest extends BaseTest {
 
     @And("Upload {string} file")
     public void uploadFile(String filename) {
-        mainPage.clickOnSearchButton();
+        mainPage.clickOnSearchLink();
         mainPage.uploadFile(filename);
     }
 
     @And("Go to the pictures page")
     public void goToPicturesPage() {
         mainPage.clickOnLabelButton();
-        mainPage.clickOnPictureLink();
     }
 
     @When("Click on the logo")
     public void clickOnLogo() {
-        picturePage.clickOnLogo();
+        header.clickOnLogo();
     }
 
     @Then("Main page should appear")
