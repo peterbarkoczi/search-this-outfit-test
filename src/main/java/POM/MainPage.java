@@ -12,20 +12,8 @@ import java.util.NoSuchElementException;
 
 public class MainPage extends BasePage {
 
-    @FindBy(className = "title-a")
-    private WebElement logo;
-
     @FindBy(css = "input[type=file]")
     private WebElement chooseFileButton;
-
-    @FindBy(className = "sidebar")
-    private WebElement labelsDiv;
-
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[3]/div/div/div[2]/div/ul")
-    private WebElement labelsUl;
-
-    @FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/a[1]")
-    private WebElement pictureLink;
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[3]/div/div/p[1]")
     private WebElement welcomeMessage;
@@ -48,9 +36,6 @@ public class MainPage extends BasePage {
         driver.navigate().refresh();
     }
 
-    public boolean logoIsAppeared() {
-        return wait.until(ExpectedConditions.visibilityOf(logo)).isDisplayed();
-    }
 
     public void uploadFile(String filename) {
         File picture = new File("src/test/resources/pictures/" + filename);
@@ -83,10 +68,6 @@ public class MainPage extends BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className("current-image")));
         WebElement image = driver.findElement(By.className("current-image"));
         return image.isDisplayed();
-    }
-
-    public void clickOnPictureLink() {
-        clickOn(pictureLink);
     }
 
     public boolean welcomeMessageIsAppear() {
