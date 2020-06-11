@@ -19,9 +19,10 @@ public class MainPage extends BasePage {
     private WebElement welcomeMessage;
 
     @FindBy(className = "search-link")
-    private WebElement searchButton;
+    private WebElement searchLink;
 
-    private WebElement popup;
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[3]/div/div/p[2]/a")
+    private WebElement aboutUsLink;
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -111,7 +112,11 @@ public class MainPage extends BasePage {
         )).click();
     }
 
-    public void clickOnSearchButton() {
-        wait.until(ExpectedConditions.visibilityOf(searchButton)).click();
+    public void clickOnSearchLink() {
+        wait.until(ExpectedConditions.visibilityOf(searchLink)).click();
+    }
+
+    public void clickOnAboutUsLink() {
+        wait.until(ExpectedConditions.visibilityOf(aboutUsLink)).click();
     }
 }
