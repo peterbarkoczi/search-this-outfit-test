@@ -3,6 +3,7 @@ Feature: Click On label button
 
   Scenario Template: : Click on label button
     Given Open application main page
+    And Go to the search page
     When Upload a picture: "<filename>"
     And Click on label button
     Then Images should appear

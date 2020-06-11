@@ -3,6 +3,7 @@ Feature: Choose product
 
   Scenario Template: Choose product
     Given Open application main page
+    And Go to the search page
     And Upload a picture: "<filename>"
     And Click on label button
     When Click on product

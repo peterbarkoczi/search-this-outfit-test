@@ -3,6 +3,7 @@ Feature: Upload image
 
   Scenario Template: : Upload image
     Given Open application main page
+    And Go to the search page
     When Upload a picture: "<filename>"
     Then The picture should appear on the screen
     Examples:

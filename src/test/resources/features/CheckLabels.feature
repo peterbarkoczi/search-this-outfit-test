@@ -3,6 +3,7 @@ Feature: Check labels for uploaded picture
 
   Scenario Template: : Check labels
     Given Open application main page
+    And Go to the search page
     When Upload a picture: "<filename>"
     Then The labels should appear
     Examples:

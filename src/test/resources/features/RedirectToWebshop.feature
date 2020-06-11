@@ -3,6 +3,7 @@ Feature: Redirect to webshop
 
   Scenario Template: : Redirect to webshop
     Given Open application main page
+    And Go to the search page
     When Upload a picture: "<filename>"
     And Go to product popup
     And Go to the product's webShop page

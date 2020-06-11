@@ -3,4 +3,4 @@ Feature: Navigate to Search This Outfit main page
 
   Scenario: Go to main page
     Given Open application main page
-    Then Check whether logo is appeared
+    Then Check whether the welcome message is appeared
