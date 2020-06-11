@@ -29,4 +29,12 @@ public abstract class BasePage {
     protected void clickOn(WebElement element) {
         element.click();
     }
+
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
 }
